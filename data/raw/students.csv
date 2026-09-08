@@ -1,0 +1,81 @@
+student_id,name,email,faculty,year_of_study,latitude,longitude,interests,available_from,available_to,max_price
+1,Ana Petrova,ana.petrova1@example.com,Medicine,1,41.9942,21.4237,"Art,Business,Competition",09:00,20:00,0
+2,Marko Ivanov,marko.ivanov2@example.com,Law,4,41.994254,21.42225,"Art,Science,Networking",09:00,20:00,5
+3,Elena Stojanova,elena.stojanova3@example.com,Medicine,4,41.995764,21.426214,"Health,Student Club,Technology",10:00,19:00,10
+4,Stefan Trajkovski,stefan.trajkovski4@example.com,Design,2,41.995723,21.427608,"Career,Language,Volunteering",09:00,18:00,10
+5,Mila Nikolovska,mila.nikolovska5@example.com,Law,3,42.000457,21.427338,"Science,Career,Volunteering",09:00,20:00,10
+6,Nikola Dimitrov,nikola.dimitrov6@example.com,Medicine,3,41.998619,21.427137,"Technology,Workshop,Art",12:00,16:00,5
+7,Sara Ristovska,sara.ristovska7@example.com,Computer Science,4,41.996224,21.426585,"Sport,Business,Language",12:00,17:00,10
+8,David Kostov,david.kostov8@example.com,Medicine,1,41.998873,21.422869,"Competition,Art,Business",13:00,19:00,10
+9,Ivana Petrova,ivana.petrova9@example.com,Medicine,2,41.999477,21.428243,"Health,Technology,Art",09:00,18:00,15
+10,Filip Ivanov,filip.ivanov10@example.com,Design,1,41.995688,21.429043,"Language,Competition,Sport",10:00,19:00,15
+11,Marija Stojanova,marija.stojanova11@example.com,Medicine,4,41.995143,21.422617,"Competition,Science,Student Club",12:00,20:00,15
+12,Aleksandar Trajkovski,aleksandar.trajkovski12@example.com,Law,4,41.996896,21.429479,"Business,Science,Culture",09:00,16:00,0
+13,Katerina Nikolovska,katerina.nikolovska13@example.com,Economics,2,42.000337,21.424877,"Career,Volunteering,Student Club",14:00,19:00,20
+14,Petar Dimitrov,petar.dimitrov14@example.com,Design,1,41.999442,21.422416,"Language,Science,Health",12:00,18:00,0
+15,Teodora Ristovska,teodora.ristovska15@example.com,Design,4,41.995265,21.421526,"Competition,Language,Music",14:00,17:00,20
+16,Bojan Kostov,bojan.kostov16@example.com,Computer Science,3,42.000733,21.425561,"Art,Business,Sport",10:00,20:00,20
+17,Jovana Petrova,jovana.petrova17@example.com,Computer Science,3,41.997909,21.422395,"Sport,Student Club,Health",12:00,17:00,0
+18,Martin Ivanov,martin.ivanov18@example.com,Economics,1,41.994685,21.425388,"Career,Health,Science",10:00,17:00,15
+19,Angela Stojanova,angela.stojanova19@example.com,Law,2,41.99612,21.428479,"Volunteering,Art,Science",10:00,18:00,15
+20,Viktor Trajkovski,viktor.trajkovski20@example.com,Medicine,3,41.997505,21.425641,"Career,Art,Student Club",09:00,18:00,0
+21,Ana Nikolovska,ana.nikolovska21@example.com,Law,2,41.998708,21.421558,"Competition,Workshop,Technology",10:00,16:00,0
+22,Marko Dimitrov,marko.dimitrov22@example.com,Design,1,41.998113,21.423728,"Culture,Art,Science",10:00,20:00,20
+23,Elena Ristovska,elena.ristovska23@example.com,Engineering,2,42.000277,21.42796,"Art,Career,Student Club",13:00,18:00,15
+24,Stefan Kostov,stefan.kostov24@example.com,Engineering,4,42.000911,21.421933,"Workshop,Language,Career",09:00,19:00,10
+25,Mila Petrova,mila.petrova25@example.com,Computer Science,2,41.995533,21.42579,"Business,Volunteering,Language",12:00,19:00,5
+26,Nikola Ivanov,nikola.ivanov26@example.com,Computer Science,4,42.000464,21.428348,"Career,Technology,Workshop",14:00,16:00,0
+27,Sara Stojanova,sara.stojanova27@example.com,Economics,2,41.997251,21.425351,"Student Club,Volunteering,Technology",10:00,19:00,0
+28,David Trajkovski,david.trajkovski28@example.com,Engineering,3,42.001412,21.427781,"Music,Volunteering,Competition",14:00,19:00,5
+29,Ivana Nikolovska,ivana.nikolovska29@example.com,Economics,3,41.995742,21.421968,"Competition,Science,Technology",12:00,16:00,0
+30,Filip Dimitrov,filip.dimitrov30@example.com,Law,4,41.998023,21.428322,"Business,Technology,Science",09:00,17:00,0
+31,Marija Ristovska,marija.ristovska31@example.com,Law,1,41.999402,21.423382,"Career,Networking,Art",14:00,20:00,0
+32,Aleksandar Kostov,aleksandar.kostov32@example.com,Law,1,41.997354,21.426169,"Science,Sport,Music",10:00,18:00,5
+33,Katerina Petrova,katerina.petrova33@example.com,Design,4,41.995047,21.426664,"Culture,Sport,Health",09:00,16:00,15
+34,Petar Ivanov,petar.ivanov34@example.com,Law,1,41.994586,21.423205,"Music,Business,Sport",09:00,17:00,10
+35,Teodora Stojanova,teodora.stojanova35@example.com,Design,2,41.997505,21.425846,"Music,Networking,Health",14:00,16:00,20
+36,Bojan Trajkovski,bojan.trajkovski36@example.com,Design,1,42.001511,21.422574,"Career,Language,Competition",14:00,17:00,10
+37,Jovana Nikolovska,jovana.nikolovska37@example.com,Design,2,41.999741,21.423129,"Workshop,Student Club,Music",14:00,19:00,10
+38,Martin Dimitrov,martin.dimitrov38@example.com,Computer Science,1,41.999074,21.428135,"Technology,Language,Sport",10:00,18:00,5
+39,Angela Ristovska,angela.ristovska39@example.com,Medicine,4,41.998413,21.424921,"Technology,Career,Student Club",10:00,20:00,0
+40,Viktor Kostov,viktor.kostov40@example.com,Design,2,41.997438,21.421835,"Sport,Health,Technology",12:00,17:00,5
+41,Ana Petrova,ana.petrova41@example.com,Medicine,1,41.996829,21.425979,"Student Club,Volunteering,Networking",10:00,17:00,5
+42,Marko Ivanov,marko.ivanov42@example.com,Economics,4,41.994198,21.427393,"Sport,Health,Volunteering",10:00,18:00,5
+43,Elena Stojanova,elena.stojanova43@example.com,Medicine,1,41.99706,21.42181,"Culture,Art,Student Club",13:00,18:00,10
+44,Stefan Trajkovski,stefan.trajkovski44@example.com,Economics,2,41.994189,21.423045,"Sport,Music,Career",12:00,18:00,20
+45,Mila Nikolovska,mila.nikolovska45@example.com,Engineering,3,42.001514,21.422423,"Music,Business,Networking",12:00,16:00,0
+46,Nikola Dimitrov,nikola.dimitrov46@example.com,Law,4,41.996765,21.427791,"Volunteering,Networking,Science",09:00,19:00,20
+47,Sara Ristovska,sara.ristovska47@example.com,Economics,3,41.994355,21.424988,"Science,Health,Language",10:00,18:00,15
+48,David Kostov,david.kostov48@example.com,Computer Science,3,41.998985,21.426807,"Career,Competition,Music",14:00,18:00,15
+49,Ivana Petrova,ivana.petrova49@example.com,Design,4,41.999578,21.425935,"Art,Volunteering,Workshop",13:00,17:00,20
+50,Filip Ivanov,filip.ivanov50@example.com,Law,3,41.997249,21.42817,"Music,Language,Art",13:00,20:00,20
+51,Marija Stojanova,marija.stojanova51@example.com,Medicine,3,41.99772,21.425037,"Art,Science,Culture",10:00,16:00,10
+52,Aleksandar Trajkovski,aleksandar.trajkovski52@example.com,Law,3,41.994747,21.429116,"Art,Workshop,Music",10:00,17:00,5
+53,Katerina Nikolovska,katerina.nikolovska53@example.com,Computer Science,1,41.995959,21.425301,"Student Club,Health,Career",13:00,19:00,20
+54,Petar Dimitrov,petar.dimitrov54@example.com,Economics,4,41.997955,21.423452,"Workshop,Competition,Technology",09:00,19:00,5
+55,Teodora Ristovska,teodora.ristovska55@example.com,Economics,4,41.994402,21.423494,"Student Club,Career,Culture",10:00,19:00,20
+56,Bojan Kostov,bojan.kostov56@example.com,Law,3,42.0016,21.428631,"Networking,Student Club,Competition",14:00,19:00,20
+57,Jovana Petrova,jovana.petrova57@example.com,Engineering,2,41.999949,21.425297,"Music,Health,Art",12:00,20:00,15
+58,Martin Ivanov,martin.ivanov58@example.com,Medicine,2,41.996197,21.42212,"Music,Art,Language",12:00,18:00,20
+59,Angela Stojanova,angela.stojanova59@example.com,Computer Science,2,41.995207,21.424564,"Business,Competition,Art",09:00,19:00,15
+60,Viktor Trajkovski,viktor.trajkovski60@example.com,Design,4,41.997326,21.423155,"Volunteering,Language,Health",14:00,16:00,20
+61,Ana Nikolovska,ana.nikolovska61@example.com,Engineering,4,41.994047,21.424314,"Health,Volunteering,Student Club",14:00,20:00,20
+62,Marko Dimitrov,marko.dimitrov62@example.com,Economics,4,41.995755,21.424987,"Technology,Volunteering,Sport",13:00,17:00,15
+63,Elena Ristovska,elena.ristovska63@example.com,Economics,1,42.001255,21.426235,"Workshop,Technology,Career",13:00,17:00,15
+64,Stefan Kostov,stefan.kostov64@example.com,Economics,1,41.996081,21.424119,"Culture,Sport,Student Club",13:00,18:00,15
+65,Mila Petrova,mila.petrova65@example.com,Design,1,41.997762,21.427492,"Technology,Sport,Art",09:00,16:00,0
+66,Nikola Ivanov,nikola.ivanov66@example.com,Economics,2,42.000714,21.426471,"Art,Business,Culture",09:00,20:00,5
+67,Sara Stojanova,sara.stojanova67@example.com,Engineering,3,42.000135,21.422842,"Networking,Competition,Student Club",09:00,17:00,10
+68,David Trajkovski,david.trajkovski68@example.com,Computer Science,1,42.001431,21.426106,"Language,Volunteering,Student Club",10:00,16:00,20
+69,Ivana Nikolovska,ivana.nikolovska69@example.com,Medicine,2,41.994815,21.42768,"Student Club,Workshop,Networking",09:00,20:00,0
+70,Filip Dimitrov,filip.dimitrov70@example.com,Design,4,41.999292,21.422052,"Workshop,Sport,Technology",13:00,19:00,0
+71,Marija Ristovska,marija.ristovska71@example.com,Engineering,3,41.999085,21.42813,"Competition,Business,Volunteering",10:00,20:00,10
+72,Aleksandar Kostov,aleksandar.kostov72@example.com,Law,4,41.997719,21.428106,"Networking,Music,Sport",10:00,16:00,10
+73,Katerina Petrova,katerina.petrova73@example.com,Engineering,2,42.000004,21.426059,"Workshop,Volunteering,Sport",09:00,19:00,10
+74,Petar Ivanov,petar.ivanov74@example.com,Economics,4,41.995697,21.427883,"Sport,Music,Networking",12:00,20:00,0
+75,Teodora Stojanova,teodora.stojanova75@example.com,Law,2,41.994685,21.427261,"Culture,Science,Health",10:00,19:00,15
+76,Bojan Trajkovski,bojan.trajkovski76@example.com,Engineering,1,41.994744,21.423273,"Competition,Art,Music",14:00,18:00,15
+77,Jovana Nikolovska,jovana.nikolovska77@example.com,Law,3,41.997404,21.427467,"Sport,Language,Competition",13:00,18:00,10
+78,Martin Dimitrov,martin.dimitrov78@example.com,Design,2,41.994965,21.423041,"Career,Competition,Science",10:00,17:00,5
+79,Angela Ristovska,angela.ristovska79@example.com,Medicine,4,41.996212,21.426217,"Health,Science,Networking",12:00,16:00,5
+80,Viktor Kostov,viktor.kostov80@example.com,Design,2,41.996887,21.423918,"Competition,Science,Business",12:00,16:00,0
