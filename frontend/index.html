@@ -3,147 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campus Event Recommendations</title>
-
+  <title>Campus Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
 </head>
 
-<body class="min-h-screen bg-slate-100 text-slate-800">
-  <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-    <header class="mb-8">
-      <p class="mb-2 text-sm font-bold uppercase tracking-wide text-blue-600">
-        Campus Event Recommendation System
-      </p>
+<body class="min-h-screen bg-slate-200 text-slate-900">
+  <main class="mx-auto min-h-screen max-w-md bg-slate-100 pb-8 shadow-xl">
+    <header class="bg-gradient-to-br from-blue-700 to-indigo-700 px-5 pb-8 pt-7 text-white">
+      <div class="flex items-center justify-center gap-3">
+        <img
+          src="assets/campus-logo.png"
+          alt="Campus event application logo"
+          class="h-20 w-20 shrink-0 rounded-2xl bg-white object-contain p-1 shadow-lg"
+        >
 
-      <h1 class="text-3xl font-bold text-slate-900 sm:text-4xl">
-        Recommended events
-      </h1>
-
-      <p class="mt-3 text-slate-600">
-        Select a student to view personalized campus-event recommendations.
-      </p>
+        <div>
+          <h1 class="text-3xl font-bold">
+            Campus Events
+          </h1>
+        </div>
+      </div>
     </header>
 
-    <section class="mb-8 rounded-2xl bg-white p-5 shadow-sm">
-      <label
-        for="student-select"
-        class="mb-2 block text-sm font-semibold text-slate-700"
-      >
-        Student
-      </label>
-
-      <select
-        id="student-select"
-        class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-800 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200 sm:max-w-md"
-      ></select>
-    </section>
-
-    <section class="mb-8 rounded-2xl bg-white p-5 shadow-sm">
-      <h2 class="text-xl font-bold text-slate-900">Browse events</h2>
-
-      <p class="mt-1 text-sm text-slate-600">
-        Filter all campus events by category, date, or free entry.
-      </p>
-
-      <form id="event-filter-form" class="mt-5 grid gap-3 md:grid-cols-4">
-        <select
-          id="category-filter"
-          class="rounded-lg border border-slate-300 bg-white px-3 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-        >
-          <option value="">All categories</option>
-          <option>Technology</option>
-          <option>Career</option>
-          <option>Business</option>
-          <option>Art</option>
-          <option>Music</option>
-          <option>Sport</option>
-          <option>Volunteering</option>
-          <option>Culture</option>
-          <option>Science</option>
-          <option>Networking</option>
-          <option>Workshop</option>
-          <option>Competition</option>
-          <option>Health</option>
-          <option>Student Club</option>
-          <option>Language</option>
-        </select>
-
-        <input
-          id="date-filter"
-          type="date"
-          class="rounded-lg border border-slate-300 px-3 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-        >
-
-        <label class="flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700">
-          <input id="free-only-filter" type="checkbox">
-          Free only
+    <section class="-mt-4 px-4">
+      <div class="rounded-2xl bg-slate-50 p-4 shadow-md">
+        <label for="student-select" class="mb-2 block text-xs font-bold uppercase tracking-wide text-slate-500">
+          Student profile
         </label>
 
+        <select
+          id="student-select"
+          class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-semibold text-slate-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+        ></select>
+      </div>
+    </section>
+
+    <section class="px-4 pt-6">
+      <div class="mb-4 flex items-center justify-between">
+        <div>
+          <h2 class="text-xl font-bold">For you</h2>
+          <p class="text-sm text-slate-500">Recommended campus events</p>
+        </div>
+
+        <span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700">
+          Personal
+        </span>
+      </div>
+
+      <p id="loading-state" class="hidden rounded-2xl bg-slate-50 p-6 text-center text-sm font-medium text-slate-500 shadow-sm">
+        Loading recommendations...
+      </p>
+
+      <p id="error-state" class="hidden rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"></p>
+
+      <p id="empty-state" class="hidden rounded-2xl bg-slate-50 p-6 text-center text-sm text-slate-500 shadow-sm">
+        No recommended events are currently available.
+      </p>
+
+      <section id="recommendations" class="space-y-4"></section>
+
+      <div id="load-more-container" class="mt-5 hidden text-center">
         <button
-          type="submit"
-          class="rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white transition hover:bg-blue-700"
+          id="load-more-button"
+          type="button"
+          class="w-full rounded-xl border border-blue-200 bg-slate-50 py-3 text-sm font-bold text-blue-700 shadow-sm transition active:scale-[0.98] hover:bg-blue-50"
         >
-          Apply filters
+          Load more
         </button>
-      </form>
+      </div>
     </section>
 
-    <section
-      id="loading-state"
-      class="hidden rounded-xl bg-white p-8 text-center shadow-sm"
-    >
-      <p class="font-medium text-slate-600">Loading recommendations...</p>
-    </section>
+    <section class="mt-8 px-4">
+      <details class="rounded-2xl bg-slate-50 shadow-sm" open>
+        <summary class="flex cursor-pointer list-none items-center justify-between p-4 text-base font-bold">
+          Browse all events
+          <span class="text-blue-600">Filter</span>
+        </summary>
 
-    <section
-      id="error-state"
-      class="hidden rounded-xl border border-red-200 bg-red-50 p-5 text-red-700"
-    ></section>
+        <form id="event-filter-form" class="space-y-3 border-t border-slate-100 p-4">
+          <select
+            id="category-filter"
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm outline-none focus:border-blue-500"
+          >
+            <option value="">All categories</option>
+            <option>Technology</option>
+            <option>Career</option>
+            <option>Business</option>
+            <option>Art</option>
+            <option>Music</option>
+            <option>Sport</option>
+            <option>Volunteering</option>
+            <option>Culture</option>
+            <option>Science</option>
+            <option>Networking</option>
+            <option>Workshop</option>
+            <option>Competition</option>
+            <option>Health</option>
+            <option>Student Club</option>
+            <option>Language</option>
+          </select>
 
-    <section
-      id="empty-state"
-      class="hidden rounded-xl bg-white p-8 text-center shadow-sm"
-    >
-      <p class="font-semibold text-slate-700">
-        No matching recommended events are available.
+          <input
+            id="date-filter"
+            type="date"
+            class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm outline-none focus:border-blue-500"
+          >
+
+          <label class="flex items-center gap-3 rounded-xl bg-slate-50 px-3 py-3 text-sm font-semibold">
+            <input id="free-only-filter" type="checkbox" class="h-5 w-5 accent-blue-600">
+            Show free events only
+          </label>
+
+          <button
+            type="submit"
+            class="w-full rounded-xl bg-blue-600 py-3 text-sm font-bold text-white transition active:scale-[0.98] hover:bg-blue-700"
+          >
+            Apply filters
+          </button>
+        </form>
+      </details>
+
+      <p id="events-state" class="mt-4 text-center text-sm text-slate-500">
+        Select filters to browse all events.
       </p>
-    </section>
 
-    <section class="mb-10">
-      <h2 class="mb-4 text-2xl font-bold text-slate-900">
-        Personalized recommendations
-      </h2>
-
-      <section
-        id="recommendations"
-        class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
-        aria-live="polite"
-      ></section>
-    </section>
-
-    <section>
-      <h2 class="mb-2 text-2xl font-bold text-slate-900">
-        Filtered events
-      </h2>
-
-      <p id="events-state" class="mb-4 text-slate-600">
-        Use the filters above to browse campus events.
-      </p>
-
-      <section
-        id="events-results"
-        class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
-      ></section>
+      <section id="events-results" class="mt-4 space-y-3"></section>
     </section>
   </main>
 
   <script>
-    const API_BASE_URL = window.location.port === "5500"
-    ? "http://127.0.0.1:8000"
-    : "/api";
+    const API_BASE_URL = "/api";
 
     const studentSelect = document.querySelector("#student-select");
     const recommendationsContainer = document.querySelector("#recommendations");
+    const loadMoreContainer = document.querySelector("#load-more-container");
+    const loadMoreButton = document.querySelector("#load-more-button");
     const loadingState = document.querySelector("#loading-state");
     const errorState = document.querySelector("#error-state");
     const emptyState = document.querySelector("#empty-state");
@@ -154,6 +156,10 @@
     const freeOnlyFilter = document.querySelector("#free-only-filter");
     const eventsState = document.querySelector("#events-state");
     const eventsResults = document.querySelector("#events-results");
+
+    const RECOMMENDATIONS_PER_PAGE = 5;
+    let allRecommendations = [];
+    let visibleRecommendationCount = RECOMMENDATIONS_PER_PAGE;
 
 
     function setState(state, message = "") {
@@ -190,79 +196,105 @@
     }
 
 
-    function renderRecommendations(recommendations) {
+    function recommendationCard(event) {
+      const price = Number(event.price) === 0 ? "FREE" : `€${event.price}`;
+
+      return `
+        <article class="overflow-hidden rounded-2xl bg-slate-50 shadow-sm ring-1 ring-slate-200">
+          <div class="flex items-start justify-between gap-3 p-4 pb-3">
+            <div>
+              <span class="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-bold text-blue-700">
+                ${escapeHtml(event.category)}
+              </span>
+
+              <h3 class="mt-3 text-lg font-bold leading-6">
+                ${escapeHtml(event.title)}
+              </h3>
+            </div>
+
+            <span class="shrink-0 rounded-xl bg-emerald-100 px-2 py-1 text-sm font-bold text-emerald-700">
+              ${event.score}
+            </span>
+          </div>
+
+          <div class="space-y-2 px-4 pb-4 text-sm text-slate-600">
+            <p>📍 ${escapeHtml(event.location_name)}</p>
+            <p>📅 ${formatDateTime(event.start_datetime)}</p>
+            <p>👤 ${escapeHtml(event.organizer)}</p>
+          </div>
+
+          <div class="grid grid-cols-3 border-y border-slate-100 bg-slate-50 text-center text-xs">
+            <div class="p-3">
+              <p class="text-slate-400">Distance</p>
+              <p class="mt-1 font-bold text-slate-700">${event.distance_km} km</p>
+            </div>
+
+            <div class="border-x border-slate-100 p-3">
+              <p class="text-slate-400">Price</p>
+              <p class="mt-1 font-bold text-slate-700">${price}</p>
+            </div>
+
+            <div class="p-3">
+              <p class="text-slate-400">Places</p>
+              <p class="mt-1 font-bold text-slate-700">${event.available_places}</p>
+            </div>
+          </div>
+
+          <p class="m-4 rounded-xl border-l-4 border-blue-500 bg-blue-50 p-3 text-sm leading-5 text-slate-700">
+            ${escapeHtml(event.reason)}
+          </p>
+        </article>
+      `;
+    }
+
+
+    function renderRecommendations() {
       recommendationsContainer.innerHTML = "";
 
-      if (recommendations.length === 0) {
+      if (allRecommendations.length === 0) {
         setState("empty");
+        loadMoreContainer.classList.add("hidden");
         return;
       }
 
       setState("");
+      const visibleRecommendations = allRecommendations.slice(
+        0,
+        visibleRecommendationCount,
+      );
 
-      recommendationsContainer.innerHTML = recommendations.map((event) => {
-        const price = Number(event.price) === 0
-          ? "FREE"
-          : `€${event.price}`;
+      recommendationsContainer.innerHTML = visibleRecommendations
+        .map(recommendationCard)
+        .join("");
 
-        return `
-          <article class="flex flex-col rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg">
-            <div class="mb-4 flex items-start justify-between gap-3">
-              <div>
-                <span class="inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700">
-                  ${escapeHtml(event.category)}
-                </span>
+      loadMoreContainer.classList.toggle(
+        "hidden",
+        visibleRecommendationCount >= allRecommendations.length,
+      );
+    }
 
-                <h3 class="mt-3 text-xl font-bold text-slate-900">
-                  ${escapeHtml(event.title)}
-                </h3>
-              </div>
 
-              <span class="whitespace-nowrap rounded-lg bg-emerald-100 px-2 py-1 text-sm font-bold text-emerald-700">
-                ${event.score}/100
-              </span>
-            </div>
+    async function loadRecommendations(studentId) {
+      setState("loading");
+      recommendationsContainer.innerHTML = "";
+      loadMoreContainer.classList.add("hidden");
 
-            <dl class="space-y-2 text-sm text-slate-600">
-              <div>
-                <dt class="inline font-semibold text-slate-700">Organizer: </dt>
-                <dd class="inline">${escapeHtml(event.organizer)}</dd>
-              </div>
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}/recommendations/${studentId}`,
+        );
 
-              <div>
-                <dt class="inline font-semibold text-slate-700">Location: </dt>
-                <dd class="inline">${escapeHtml(event.location_name)}</dd>
-              </div>
+        if (!response.ok) {
+          throw new Error("Could not load recommendations.");
+        }
 
-              <div>
-                <dt class="inline font-semibold text-slate-700">Date and time: </dt>
-                <dd class="inline">${formatDateTime(event.start_datetime)}</dd>
-              </div>
-
-              <div class="grid grid-cols-3 gap-2 pt-2 text-center">
-                <div class="rounded-lg bg-slate-100 p-2">
-                  <dt class="text-xs text-slate-500">Distance</dt>
-                  <dd class="font-bold text-slate-800">${event.distance_km} km</dd>
-                </div>
-
-                <div class="rounded-lg bg-slate-100 p-2">
-                  <dt class="text-xs text-slate-500">Price</dt>
-                  <dd class="font-bold text-slate-800">${price}</dd>
-                </div>
-
-                <div class="rounded-lg bg-slate-100 p-2">
-                  <dt class="text-xs text-slate-500">Places</dt>
-                  <dd class="font-bold text-slate-800">${event.available_places}</dd>
-                </div>
-              </div>
-            </dl>
-
-            <p class="mt-5 rounded-lg border-l-4 border-blue-500 bg-blue-50 p-3 text-sm text-slate-700">
-              ${escapeHtml(event.reason)}
-            </p>
-          </article>
-        `;
-      }).join("");
+        const data = await response.json();
+        allRecommendations = data.recommendations;
+        visibleRecommendationCount = RECOMMENDATIONS_PER_PAGE;
+        renderRecommendations();
+      } catch (error) {
+        setState("error", error.message);
+      }
     }
 
 
@@ -277,62 +309,39 @@
       eventsState.textContent = `${events.length} event(s) found.`;
 
       eventsResults.innerHTML = events.map((event) => {
-        const price = Number(event.price) === 0
-          ? "FREE"
-          : `€${event.price}`;
-
+        const price = Number(event.price) === 0 ? "FREE" : `€${event.price}`;
         const availablePlaces = event.capacity - event.registered_count;
 
         return `
-          <article class="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-            <span class="inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700">
-              ${escapeHtml(event.category)}
-            </span>
+          <article class="rounded-2xl bg-slate-50 p-4 shadow-sm ring-1 ring-slate-200">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <span class="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-bold text-blue-700">
+                  ${escapeHtml(event.category)}
+                </span>
 
-            <h3 class="mt-3 text-xl font-bold text-slate-900">
-              ${escapeHtml(event.title)}
-            </h3>
+                <h3 class="mt-3 font-bold leading-5">
+                  ${escapeHtml(event.title)}
+                </h3>
+              </div>
+
+              <span class="shrink-0 text-sm font-bold text-blue-700">${price}</span>
+            </div>
 
             <p class="mt-3 text-sm text-slate-600">
-              <strong>Organizer:</strong> ${escapeHtml(event.organizer)}
+              📍 ${escapeHtml(event.location_name)}
             </p>
 
             <p class="mt-2 text-sm text-slate-600">
-              <strong>Location:</strong> ${escapeHtml(event.location_name)}
+              📅 ${formatDateTime(event.start_datetime)}
             </p>
 
             <p class="mt-2 text-sm text-slate-600">
-              <strong>Date:</strong> ${formatDateTime(event.start_datetime)}
+              Available places: <strong>${availablePlaces}</strong>
             </p>
-
-            <div class="mt-4 flex justify-between rounded-lg bg-slate-100 p-3 text-sm">
-              <span><strong>Price:</strong> ${price}</span>
-              <span><strong>Places:</strong> ${availablePlaces}</span>
-            </div>
           </article>
         `;
       }).join("");
-    }
-
-
-    async function loadRecommendations(studentId) {
-      setState("loading");
-      recommendationsContainer.innerHTML = "";
-
-      try {
-        const response = await fetch(
-          `${API_BASE_URL}/recommendations/${studentId}`,
-        );
-
-        if (!response.ok) {
-          throw new Error("Could not load recommendations from the API.");
-        }
-
-        const data = await response.json();
-        renderRecommendations(data.recommendations);
-      } catch (error) {
-        setState("error", error.message);
-      }
     }
 
 
@@ -363,8 +372,7 @@
           throw new Error("Could not load filtered events.");
         }
 
-        const events = await response.json();
-        renderEvents(events);
+        renderEvents(await response.json());
       } catch (error) {
         eventsState.textContent = error.message;
       }
@@ -378,15 +386,10 @@
         const response = await fetch(`${API_BASE_URL}/students`);
 
         if (!response.ok) {
-          throw new Error("Could not load students from the API.");
+          throw new Error("Could not load students.");
         }
 
         const students = await response.json();
-
-        if (students.length === 0) {
-          setState("empty");
-          return;
-        }
 
         studentSelect.innerHTML = students.map((student) => `
           <option value="${student.id}">
@@ -394,20 +397,11 @@
           </option>
         `).join("");
 
-        const urlStudentId = new URLSearchParams(window.location.search)
-          .get("student_id");
+        const selectedId = new URLSearchParams(window.location.search)
+          .get("student_id") || students[0].id;
 
-        const studentExists = students.some(
-          (student) => student.id === Number(urlStudentId),
-        );
-
-        const selectedStudentId = studentExists
-          ? urlStudentId
-          : students[0].id;
-
-        studentSelect.value = selectedStudentId;
-
-        await loadRecommendations(selectedStudentId);
+        studentSelect.value = selectedId;
+        await loadRecommendations(selectedId);
       } catch (error) {
         setState("error", error.message);
       }
@@ -418,8 +412,13 @@
       const studentId = studentSelect.value;
 
       window.history.replaceState({}, "", `?student_id=${studentId}`);
-
       await loadRecommendations(studentId);
+    });
+
+
+    loadMoreButton.addEventListener("click", () => {
+      visibleRecommendationCount += RECOMMENDATIONS_PER_PAGE;
+      renderRecommendations();
     });
 
 

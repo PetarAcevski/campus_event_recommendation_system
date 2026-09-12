@@ -1,6 +1,6 @@
 # Campus Event Recommendation System
 
-A local web application that recommends relevant campus events to students using deterministic and explainable scoring.
+A local web application that recommends relevant campus events to students.
 
 ## Overview
 
@@ -43,7 +43,6 @@ Students receive event recommendations based on their interests, available time,
 
 ## Project Structure
 
-```text
 campus-event-recommendation-system/
 ├── backend/
 │   ├── models/
