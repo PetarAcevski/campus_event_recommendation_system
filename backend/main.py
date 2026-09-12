@@ -4,8 +4,6 @@ from sqlalchemy import text
 from backend.database import engine
 
 
-from backend.routers import events, students
-
 from backend.routers import events, recommendations, students
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,6 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(
     title="Campus Event Recommendation System",
     version="0.1.0",
+    root_path="/api",
 )
     
 app.include_router(students.router)
